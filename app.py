@@ -34,8 +34,13 @@ def buy_stock():
 
     r = requests.post(ORDERS_URL, json=data, headers=HEADERS)
 
-    response = json.loads(r.content)
-    print(response)
+  
+     try:
+        response = json.loads(r.content)
+        print(response)
+        
+    except Exception as e: 
+        print(e)
 
     return {
         'webhook_message': webhook_message,
